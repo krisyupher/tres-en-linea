@@ -1,43 +1,46 @@
 .App {
   background-image: url("background.jpg");
-  height: 84vh;
+  height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: space-evenly;
-  flex-wrap: nowrap;
-  padding: 5%;
+  overflow: hidden;
+  flex-wrap: wrap;
+  padding-top: 10%;
 }
 .Grid {
-  width: 600px;
-  height: 600px;
-  position: absolute;
+  max-height: 300px;
+  min-height: 300px;
+  max-width: 300px;
+  min-width: 300px;
   position: relative;
 }
 .Container {
   display: flex;
   margin: 0;
   height: auto;
-  max-width: 600px;
-  height: 200px;
+  max-width: inherit;
+  height: 33%;
   max-height: 200px;
 }
 .Container p {
   width: 33%;
   height: 100%;
-  font-size: 80px;
+  font-size: 300%;
   text-align: center;
   margin: 0;
   font-family: "Rock Salt", cursive;
   z-index: 2;
-  margin-right: 40px;
 }
 #LineWinner {
+  max-width: inherit;
+  width: inherit;
   position: absolute;
   z-index: 1;
   top: 0;
 }
 .Boton-restart {
-  margin-top: 60px;
+  height: 100px;
   width: 100%;
   background: transparent;
   border: none;
@@ -50,6 +53,7 @@
 .Container-data {
   width: 400px;
   display: block;
+  height: 40%;
 }
 .Container-data input {
   width: 50%;

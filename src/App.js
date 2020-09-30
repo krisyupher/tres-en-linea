@@ -173,17 +173,6 @@ function App() {
           <p onClick={() => winner === "" && switchs(2, 1)}>{array[2][1]}</p>
           <p onClick={() => winner === "" && switchs(2, 2)}>{array[2][2]}</p>
         </div>
-
-        <button
-          className="Boton-restart"
-          onClick={() => {
-            setArray([["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]])
-            setAux(0)
-            setWinner("")
-            removeLineWinner()
-          }}>
-          Reiniciar
-      </button>
       </div>
       <div className="Container-data">
         <h2> Score 3</h2>
@@ -210,6 +199,16 @@ function App() {
         {console.log("winner", winner)}
       </div>
       {PaintTable()}
+      <button
+        className="Boton-restart"
+        onClick={() => {
+          setArray([["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]])
+          setAux(0)
+          setWinner("")
+          removeLineWinner()
+        }}>
+        Reiniciar
+      </button>
       {(winner === "Champeons X" || winner === "Champeons O") &&
         <div className="Container-Champeons">
           {`${winner}`}
