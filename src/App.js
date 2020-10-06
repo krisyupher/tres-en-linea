@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import './style/App.css';
 
 function App() {
   function getRandomArbitrary(min, max) {
@@ -8,7 +8,12 @@ function App() {
   const PaintTable = () => {
     setTimeout(() => {
       var c = document.getElementById("LineWinner");
+      /* c.width = window.innerWidth;
+      c.height = window.innerHeight; */
       var ctx = c.getContext("2d");
+      /* ctx.fillRect(100, 100, 100, 100);
+      ctx.fillRect(400, 100, 100, 100);
+      ctx.fillRect(300, 300, 100, 100); */
       ctx.beginPath();
       ctx.moveTo(220, 0);
       ctx.lineTo(180, 600);
@@ -156,59 +161,59 @@ function App() {
   }, [score])
   return (
     <div className="App">
-      <div className="Grid">
-        <canvas id="LineWinner" width="600px" height="600px" ></canvas>
-        <div className="Container">
-          <p onClick={() => winner === "" && switchs(0, 0)}>{array[0][0]}</p>
-          <p onClick={() => winner === "" && switchs(0, 1)}>{array[0][1]}</p>
-          <p onClick={() => winner === "" && switchs(0, 2)}>{array[0][2]}</p>
-        </div>
-        <div className="Container">
-          <p onClick={() => winner === "" && switchs(1, 0)}>{array[1][0]}</p>
-          <p onClick={() => winner === "" && switchs(1, 1)}>{array[1][1]}</p>
-          <p onClick={() => winner === "" && switchs(1, 2)}>{array[1][2]}</p>
-        </div>
-        <div className="Container">
-          <p onClick={() => winner === "" && switchs(2, 0)}>{array[2][0]}</p>
-          <p onClick={() => winner === "" && switchs(2, 1)}>{array[2][1]}</p>
-          <p onClick={() => winner === "" && switchs(2, 2)}>{array[2][2]}</p>
+      <div className="gridContainer">
+        <h2> Score 3</h2>
+        <div className="Grid">
+          <canvas id="LineWinner" width="600px" height="600px" ></canvas>
+          <div className="Container">
+            <p onClick={() => winner === "" && switchs(0, 0)}>{array[0][0]}</p>
+            <p onClick={() => winner === "" && switchs(0, 1)}>{array[0][1]}</p>
+            <p onClick={() => winner === "" && switchs(0, 2)}>{array[0][2]}</p>
+          </div>
+          <div className="Container">
+            <p onClick={() => winner === "" && switchs(1, 0)}>{array[1][0]}</p>
+            <p onClick={() => winner === "" && switchs(1, 1)}>{array[1][1]}</p>
+            <p onClick={() => winner === "" && switchs(1, 2)}>{array[1][2]}</p>
+          </div>
+          <div className="Container">
+            <p onClick={() => winner === "" && switchs(2, 0)}>{array[2][0]}</p>
+            <p onClick={() => winner === "" && switchs(2, 1)}>{array[2][1]}</p>
+            <p onClick={() => winner === "" && switchs(2, 2)}>{array[2][2]}</p>
+          </div>
         </div>
       </div>
       <div className="Container-data">
-        <h2> Score 3</h2>
         <div className="Container-winner">
-          <input placeholder="TAILS" maxLength='7' />
-          {score.map((item) => {
+          <span>CIRCLE</span>
+          {score.map((item, index) => {
             if (item[0] === "O") {
-              return <p>O</p>
+              return <p key={item + index}>O</p>
             } else {
               return ""
             }
           })}
         </div>
         <div className="Container-winner">
-          <input placeholder="CIRCLE" maxLength='7' />
-          {score.map((item) => {
+          <span>TAILS</span>
+          {score.map((item, index) => {
             if (item[0] === "X") {
-              return <p>X</p>
+              return <p key={item + index}>X</p>
             } else {
               return ""
             }
           })}
         </div>
-        {console.log("winner", winner)}
-      </div>
-      {PaintTable()}
-      <button
-        className="Boton-restart"
-        onClick={() => {
-          setArray([["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]])
-          setAux(0)
-          setWinner("")
-          removeLineWinner()
-        }}>
-        Reiniciar
+        <button
+          className="Boton-restart"
+          onClick={() => {
+            setArray([["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]])
+            setAux(0)
+            setWinner("")
+            removeLineWinner()
+          }}>
+          Reiniciar
       </button>
+      </div>
       {(winner === "Champeons X" || winner === "Champeons O") &&
         <div className="Container-Champeons">
           {`${winner}`}
@@ -224,6 +229,7 @@ function App() {
         </button>
         </div>
       }
+      {PaintTable()}
     </div >
   );
 }

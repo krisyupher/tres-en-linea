@@ -1,18 +1,20 @@
 .App {
-  background-image: url("background.jpg");
-  height: 100vh;
-  width: 100vw;
+  height: auto;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
-  overflow: hidden;
   flex-wrap: wrap;
-  padding-top: 10%;
+}
+.gridContainer{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 .Grid {
-  max-height: 300px;
-  min-height: 300px;
-  max-width: 300px;
-  min-width: 300px;
+  height: 90vw;
+  width: 90vw;
+  max-width: 400px;
+  max-height: 400px;
   position: relative;
 }
 .Container {
@@ -40,8 +42,6 @@
   top: 0;
 }
 .Boton-restart {
-  height: 100px;
-  width: 100%;
   background: transparent;
   border: none;
   font-size: 50px;
@@ -51,25 +51,24 @@
   color: red;
 }
 .Container-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
   width: 400px;
-  display: block;
-  height: 40%;
 }
-.Container-data input {
-  width: 50%;
-  font-size: 30px;
-  background: transparent;
-  border: none;
-  outline: none;
+.Container-data span {
+  font-size: 25px;
+  margin-right: 30px;
 }
 .Container-data p {
   width: 20px;
-  font-size: 40px;
+  font-size: 25px;
   margin: 0;
 }
-.Container-data h2 {
-  font-size: 40px;
-  border-bottom: 2px solid black;
+h2 {
+  margin: 0;
+  font-size: 30px;
 }
 .Container-data .Container-winner {
   display: flex;
